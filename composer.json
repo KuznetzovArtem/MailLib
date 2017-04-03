@@ -1,0 +1,10 @@
+{
+    "require": {
+        "symfony/finder": "^3.2",
+        "symfony/dependency-injection": "^3.2",
+        "php-amqplib/php-amqplib": "2.6.*"
+    },
+    "autoload": {
+        "psr-4": {"KaaRabbitTest\\": "MailLib"}
+    }
+}

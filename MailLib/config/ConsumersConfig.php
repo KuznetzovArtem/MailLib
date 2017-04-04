@@ -1,31 +1,48 @@
 <?php
 
-namespace KaaRabbitTest\config;
+namespace KaaMailLib\config;
 
 
-use KaaRabbitTest\QueueManagers\QueueConsumers\MailConsumer;
-use KaaRabbitTest\QueueManagers\QueueConsumers\SendMailErrorLogConsumer;
+use KaaMailLib\QueueManagers\QueueConsumers\MailConsumer;
+use KaaMailLib\QueueManagers\QueueProducers\SendMailProducer;
 
 class ConsumersConfig
 {
-    const TYPE = 'consumers';
+    /**
+     * Список консюмеров с их настройками
+     *
+     * @var array
+     */
     protected $consumers = [
-        'error_message_consumer' => [
-            'queue_name' => SendMailErrorLogConsumer::ERROR_MAIL_LOG_QUEUE,
-            'callback' => SendMailErrorLogConsumer::class
-        ],
-        'send_mail_consumer' => [
-            'queue_name' => MailConsumer::QUEUE_NAME,
-            'callback' => MailConsumer::class
-        ],
+         MailConsumer::NAME =>[
+             'queue_name' => MailConsumer::QUEUE_NAME,
+             'type' => 'direct',
+             'exchange' => SendMailProducer::EXCHANGE_NAME,
+             'route' => [SendMailProducer::MAIL_KEY],
+             'callback' => MailConsumer::class
+         ]
     ];
 
     /**
+     * Метод для получения конфигурации консюмера
+     *
      * @return array
      */
-    public function getConsumers()
+    public function getConsumerConfig($name)
     {
-        return $this->consumers;
+        if (array_key_exists($name, $this->consumers)) {
+            return $this->consumers[$name];
+        } else {
+            return false;
+        }
+    }
+
+    public function getPropertyOfConsumer($name, $property)
+    {
+        if (array_key_exists($name, $this->consumers) && array_key_exists($property, $this->consumers[$name])) {
+            return $this->consumers[$name][$property];
+        }
+        return false;
     }
 
 }

@@ -5,7 +5,7 @@
  * Date: 02.04.2017
  * Time: 19:13
  */
-namespace KaaRabbitTest\config;
+namespace KaaMailLib\config;
 
 use KaaRabbitTest\QueueManagers\QueueConsumers\MailConsumer;
 use KaaRabbitTest\QueueManagers\QueueProducers\SendMailErrorLogProducer;
@@ -14,29 +14,29 @@ use KaaRabbitTest\QueueManagers\QueueProducers\SendMailProducer;
 class ProducersConfig
 {
     const TYPE = 'producers';
+    /**
+     * Список продюссеров с их настройками
+     *
+     * @var array
+     */
     protected $producers = [
         'Mail' => [
-            'exchange' => SendMailProducer::EXCHANGE,
-            'queue_name' => MailConsumer::QUEUE_NAME,
-            'type' => 'direct',
-            'route' => [SendMailProducer::ROUTE_KEY],
-            'callback' => SendMailProducer::class
+
         ],
-        'SendMailErrorLog' => [
-            'exchange' => SendMailProducer::EXCHANGE,
-            'queue_name' => SendMailErrorLogProducer::QUEUE_NAME,
-            'type' => 'direct',
-            'route' => [SendMailErrorLogProducer::ROUTE_KEY],
-            'callback' => SendMailErrorLogProducer::class
-        ]
     ];
 
     /**
+     * Метод для получения конфигурации продюссера
+     *
      * @return array
      */
-    public function getProducers()
+    public function getProducerConfig($name)
     {
-        return $this->producers;
+        if (array_key_exists($name, $this->consumers)) {
+            return $this->consumers[$name];
+        } else {
+            return false;
+        }
     }
 
 

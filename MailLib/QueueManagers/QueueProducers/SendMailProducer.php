@@ -3,32 +3,27 @@
 /**
  * Created by PhpStorm.
  * User: Кузнецо
- * Date: 02.04.2017
- * Time: 17:17
+ * Date: 05.04.2017
+ * Time: 0:11
  */
-namespace KaaRabbitTest\QueueManagers\QueueProducers;
+namespace KaaMailLib\QueueManagers\QueueProducers;
+use KaaRabbitTest\QueueManagers\AMQPEntityInterface;
 use PhpAmqpLib\Channel\AMQPChannel;
-use PhpAmqpLib\Message\AMQPMessage;
 
-class SendMailProducer implements ProducersInterface
+class SendMailProducer implements AMQPEntityInterface
 {
-    const EXCHANGE = 'mail_exchange';
-    const ROUTE_KEY = 'send';
-    /**
-     * @var AMQPChannel $chanel
-     */
-    protected $chanel;
-    public function setChannel(AMQPChannel $chanel)
+    const EXCHANGE_NAME = 'SendMailExchange';
+    const MAIL_KEY = 'MustBeSend';
+    const ERROR_MAIL_KEY = 'ErrorMustBeSend';
+
+    public function setChanel(AMQPChannel $channel)
     {
-        $this->chanel = $chanel;
+        // TODO: Implement setChanel() method.
     }
 
-    public function publish($message)
+    public function produce($message)
     {
-        $messageAMQP = new AMQPMessage(json_encode($message));
-        $this->chanel->basic_publish($messageAMQP, 'mail_exchange', 'send');
 
-        $this->chanel->close();
-        // TODO: Implement publish() method.
     }
+
 }

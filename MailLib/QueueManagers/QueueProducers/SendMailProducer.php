@@ -7,23 +7,38 @@
  * Time: 0:11
  */
 namespace KaaMailLib\QueueManagers\QueueProducers;
-use KaaRabbitTest\QueueManagers\AMQPEntityInterface;
-use PhpAmqpLib\Channel\AMQPChannel;
 
-class SendMailProducer implements AMQPEntityInterface
+use PhpAmqpLib\Channel\AMQPChannel;
+use PhpAmqpLib\Message\AMQPMessage;
+
+/**
+ * Записывает сообщения в очередь
+ *
+ * Class SendMailProducer
+ * @package KaaMailLib\QueueManagers\QueueProducers
+ */
+class SendMailProducer extends Producer
 {
+    const NAME = 'MailProducer';
     const EXCHANGE_NAME = 'SendMailExchange';
     const MAIL_KEY = 'MustBeSend';
     const ERROR_MAIL_KEY = 'ErrorMustBeSend';
 
-    public function setChanel(AMQPChannel $channel)
+    public function setChannel(AMQPChannel $channel)
     {
-        // TODO: Implement setChanel() method.
+        $this->channel = $channel;
     }
 
-    public function produce($message)
+    /**
+     * Отправка сообщения
+     *
+     * @param $message
+     * @param $key
+     */
+    public function send($message, $key)
     {
+        $message = new AMQPMessage(json_encode($message));
 
+        $this->channel->basic_publish($message, self::EXCHANGE_NAME, $key);
     }
-
 }

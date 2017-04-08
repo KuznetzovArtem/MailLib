@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: Кузнецо
@@ -7,56 +6,30 @@
  * Time: 21:24
  */
 
+namespace KaaMailLib\QueueManagers\QueueConsumers;
+
+use KaaMailLib\Services\Mail\MailService;
+use PhpAmqpLib\Message\AMQPMessage;
+
 /**
  * сервис для отправки сообщений
  *
  * Class MailConsumer
  */
-
-namespace KaaMailLib\QueueManagers\QueueConsumers;
-use \AMQPChannel;
-use KaaMailLib\QueueManagers\AMQPEntityInterface;
-use PhpAmqpLib\Message\AMQPMessage;
-
-class MailConsumer implements AMQPEntityInterface
+class MailConsumer implements AMQPConsumerInterface
 {
     const NAME = 'Mail';
     const QUEUE_NAME = 'Send_Mail';
 
     /**
-     * Сервис для публикации сообщений с ошибками
-     *
-     * @var
-     */
-    private $publisher;
-
-    /**
      * Сервис для отправки сообщений
      *
-     * @var
+     * @var MailService
      */
     private $mailService;
 
     /**
-     * @var AMQPChannel
-     */
-    private $channel;
-
-    /**
-     * @param mixed $publisher
-     */
-    public function setPublisher($publisher)
-    {
-        $this->publisher = $publisher;
-    }
-
-    public function setChanel(AMQPChannel $channel)
-    {
-        $this->channel = $channel;
-    }
-
-    /**
-     * @param mixed $mailService
+     * @param MailService $mailService
      */
     public function setMailService($mailService)
     {
@@ -65,9 +38,11 @@ class MailConsumer implements AMQPEntityInterface
 
     public function consume(AMQPMessage $message)
     {
+        $body = json_decode($message->body,true);
+        $this->mailService->sendMail($body);
+        var_dump($body);
         //todo тут логиа по обработки сообщения
-        echo ' [x] ',$msg->delivery_info['routing_key'], ':', $msg->body, "\n";
-        $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
+        $message->delivery_info['channel']->basic_ack($message->delivery_info['delivery_tag']);
     }
 
 }

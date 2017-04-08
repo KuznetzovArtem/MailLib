@@ -7,10 +7,14 @@
  */
 namespace KaaMailLib\config;
 
-use KaaRabbitTest\QueueManagers\QueueConsumers\MailConsumer;
-use KaaRabbitTest\QueueManagers\QueueProducers\SendMailErrorLogProducer;
-use KaaRabbitTest\QueueManagers\QueueProducers\SendMailProducer;
+use KaaMailLib\QueueManagers\QueueProducers\SendMailProducer;
 
+/**
+ * Конфигурация продюссеров
+ *
+ * Class ProducersConfig
+ * @package KaaMailLib\config
+ */
 class ProducersConfig
 {
     const TYPE = 'producers';
@@ -20,8 +24,11 @@ class ProducersConfig
      * @var array
      */
     protected $producers = [
-        'Mail' => [
-
+        SendMailProducer::NAME => [
+            'exchange' => SendMailProducer::EXCHANGE_NAME,
+            'type' => 'direct',
+            'route' => [SendMailProducer::MAIL_KEY, SendMailProducer::ERROR_MAIL_KEY],
+            'callback' => SendMailProducer::class
         ],
     ];
 
@@ -32,12 +39,23 @@ class ProducersConfig
      */
     public function getProducerConfig($name)
     {
-        if (array_key_exists($name, $this->consumers)) {
-            return $this->consumers[$name];
+        if (array_key_exists($name, $this->producers)) {
+            return $this->producers[$name];
         } else {
             return false;
         }
     }
 
-
+    /**
+     * @param $name
+     * @param $property
+     * @return bool
+     */
+    public function getProducerProperty($name, $property)
+    {
+        if (array_key_exists($name, $this->producers) && array_key_exists($property, $this->producers[$name])) {
+            return $this->producers[$name][$property];
+        }
+        return false;
+    }
 }

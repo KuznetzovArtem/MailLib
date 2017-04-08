@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: Кузнецо
@@ -7,6 +6,7 @@
  * Time: 19:13
  */
 namespace KaaMailLib\config;
+
 abstract class AMQPConfig
 {
     const HOST = '192.168.99.100';

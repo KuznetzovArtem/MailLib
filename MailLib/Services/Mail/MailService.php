@@ -6,15 +6,42 @@
  * Time: 4:18
  */
 
-namespace KaaRabbitTest\Services\Mail;
+namespace KaaMailLib\Services\Mail;
 
-
+/**
+ * Сервис для отправки сообщений
+ *
+ * Class MailService
+ * @package KaaMailLib\Services\Mail
+ */
 class MailService
 {
+    /**
+     * Сервис проверки сообщения на корректность
+     *
+     * @var MailValidator
+     */
     protected $mailValidator;
 
-    public function __construct()
+    public function __construct($mailValidator)
     {
-        $this->mailValidator = new MailValidator();
+        $this->mailValidator = $mailValidator;
+    }
+
+    /**
+     * Отправляет сообщени на почту
+     *
+     * @param $message
+     */
+    public function sendMail($message)
+    {
+        $correctMessage = $this->mailValidator->validate($message);
+        if (!$correctMessage) {
+            return;
+        }
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= "From: <" . $message['From'] . ">" . "\r\n";
+        mail($message['To'], $message['subject'], $message['text'], $headers);
     }
 }

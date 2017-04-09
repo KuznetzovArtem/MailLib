@@ -1,17 +1,18 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Êóçíåöî
+ * User: ÐšÑƒÐ·Ð½ÐµÑ†Ð¾
  * Date: 08.04.2017
  * Time: 17:13
  */
 
 namespace KaaMailLib\Services;
 
+use KaaMailLib\QueueManagers\QueueConsumers\AMQPConsumerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Êëàññ îòâå÷àò çà âíåäðåíèå ñåðâèñîâ â êîíñþìåðû
+ * ÐšÐ»Ð°ÑÑ Ð¾Ñ‚Ð²ÐµÑ‡Ð°Ñ‚ Ð·Ð° Ð²Ð½ÐµÐ´Ñ€ÐµÐ½Ð¸Ðµ ÑÐµÑ€Ð²Ð¸ÑÐ¾Ð² Ð² ÐºÐ¾Ð½ÑÑŽÐ¼ÐµÑ€Ñ‹
  *
  * Class DiSetter
  * @package KaaMailLib\Services
@@ -19,14 +20,14 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class DiSetter
 {
     /**
-     * Êîíòýéíåð îïèñàííûé â êëàññå DiSetter
+     * ÐšÐ¾Ð½Ñ‚ÑÐ¹Ð½ÐµÑ€ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð½Ñ‹Ð¹ Ð² ÐºÐ»Ð°ÑÑÐµ DiSetter
      *
      * @var ContainerInterface
      */
     private $container;
 
     /**
-     * Çàãðóçêà êîíòåéíåðà
+     * Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ° ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€Ð°
      *
      * @param ContainerInterface $container
      */
@@ -36,7 +37,7 @@ class DiSetter
     }
 
     /**
-     * Çàãðóæàåò â êëàññ ñåðâèìû êîòîðûå îïèñàíû â êîíòýéíåðå
+     * Ð—Ð°Ð³Ñ€ÑƒÐ¶Ð°ÐµÑ‚ Ð² ÐºÐ»Ð°ÑÑ ÑÐµÑ€Ð²Ð¸Ð¼Ñ‹ ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ñ‹ Ð² ÐºÐ¾Ð½Ñ‚ÑÐ¹Ð½ÐµÑ€Ðµ
      *
      * @param $callback
      * @return bool
@@ -45,6 +46,9 @@ class DiSetter
     {
         if (class_exists($callback)) {
             $consumer = new $callback;
+            if (!($consumer instanceof AMQPConsumerInterface)) {
+                return false;
+            }
             $reflection = new \ReflectionClass($consumer);
             $setters = $reflection->getProperties(\ReflectionProperty::IS_PUBLIC | \ReflectionProperty::IS_PRIVATE);
             foreach($setters as $setter) {

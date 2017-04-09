@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Êóçíåöî
+ * User: ÐšÑƒÐ·Ð½ÐµÑ†Ð¾
  * Date: 04.04.2017
  * Time: 21:24
  */
@@ -12,7 +12,7 @@ use KaaMailLib\Services\Mail\MailService;
 use PhpAmqpLib\Message\AMQPMessage;
 
 /**
- * ñåðâèñ äëÿ îòïðàâêè ñîîáùåíèé
+ * ÑÐµÑ€Ð²Ð¸Ñ Ð´Ð»Ñ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐ¸ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹
  *
  * Class MailConsumer
  */
@@ -22,7 +22,7 @@ class MailErrorConsumer implements AMQPConsumerInterface
     const QUEUE_NAME = 'ErrorLog_Queue';
 
     /**
-     * Ñåðâèñ äëÿ îòïðàâêè ñîîáùåíèé
+     * Ð¡ÐµÑ€Ð²Ð¸Ñ Ð´Ð»Ñ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐ¸ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹
      *
      * @var MailService
      */
@@ -37,7 +37,7 @@ class MailErrorConsumer implements AMQPConsumerInterface
     }
 
     /**
-     * Ìåòîä äëÿ ïîëó÷åíèÿ ñîîáùåíèÿ è åãî îáðàáîòêè
+     * ÐœÐµÑ‚Ð¾Ð´ Ð´Ð»Ñ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð¸ ÐµÐ³Ð¾ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ¸
      *
      * @param AMQPMessage $message
      */

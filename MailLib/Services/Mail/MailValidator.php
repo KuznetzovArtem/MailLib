@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Êóçíåöî
+ * User: ÐšÑƒÐ·Ð½ÐµÑ†Ð¾
  * Date: 03.04.2017
  * Time: 4:22
  */
@@ -12,7 +12,7 @@ use KaaMailLib\QueueManagers\QueueBuilders\ProducerBuilder;
 use KaaMailLib\QueueManagers\QueueProducers\SendMailProducer;
 
 /**
- * Êëàññ âàëèäàöèè ñîîáùåíèé äëÿ îòïðàâêè
+ * ÐšÐ»Ð°ÑÑ Ð²Ð°Ð»Ð¸Ð´Ð°Ñ†Ð¸Ð¸ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹ Ð´Ð»Ñ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐ¸
  *
  * Class MailValidator
  * @package KaaMailLib\Services\Mail
@@ -30,7 +30,7 @@ class MailValidator
     }
 
     /**
-     * Ïðîâåðêà ñîîáùåíèÿ íà êîððåêòíîñòü
+     * ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð½Ð° ÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾ÑÑ‚ÑŒ
      *
      * @param $message
      * @return bool
@@ -50,7 +50,7 @@ class MailValidator
     }
 
     /**
-     * Îòïðàâëÿò ñîîáùåíè îá îøèáêå
+     * ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð»ÑÑ‚ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸ Ð¾Ð± Ð¾ÑˆÐ¸Ð±ÐºÐµ
      *
      * @param $message
      */
@@ -61,7 +61,7 @@ class MailValidator
     }
 
     /**
-     * Ôîðìèðóåò ñîîáùåíèå îá îøèáêå
+     * Ð¤Ð¾Ñ€Ð¼Ð¸Ñ€ÑƒÐµÑ‚ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ð¾Ð± Ð¾ÑˆÐ¸Ð±ÐºÐµ
      *
      * @param $message
      * @return array

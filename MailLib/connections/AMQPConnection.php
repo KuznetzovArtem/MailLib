@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: Кузнецо
+ * User: РљСѓР·РЅРµС†Рѕ
  * Date: 04.04.2017
  * Time: 20:48
  */
@@ -14,14 +14,14 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
 trait AMQPConnection
 {
     /**
-     * Объейк подключения к рэбиту
+     * РћР±СЉРµР№Рє РїРѕРґРєР»СЋС‡РµРЅРёСЏ Рє СЂСЌР±РёС‚Сѓ
      *
      * @var AMQPStreamConnection
      */
     protected static $connection;
 
     /**
-     * Метод для получения подключения к рэббиту
+     * РњРµС‚РѕРґ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РїРѕРґРєР»СЋС‡РµРЅРёСЏ Рє СЂСЌР±Р±РёС‚Сѓ
      *
      * @return AMQPStreamConnection
      */

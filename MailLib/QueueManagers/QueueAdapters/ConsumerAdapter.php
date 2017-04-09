@@ -1,17 +1,17 @@
 <?php
-
 /**
  * Created by PhpStorm.
- * User: Êóçíåöî
+ * User: ÐšÑƒÐ·Ð½ÐµÑ†Ð¾
  * Date: 04.04.2017
  * Time: 22:30
  */
+
 namespace KaaMailLib\QueueManagers\QueueAdapters;
 use KaaMailLib\config\ConsumersConfig;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
 /**
- * Êëàññ äëÿ êîíôèãóðàöèè êîíñþìåðîâ
+ * ÐšÐ»Ð°ÑÑ Ð´Ð»Ñ ÐºÐ¾Ð½Ñ„Ð¸Ð³ÑƒÑ€Ð°Ñ†Ð¸Ð¸ ÐºÐ¾Ð½ÑÑŽÐ¼ÐµÑ€Ð¾Ð²
  *
  * Class ConsumerAdapter
  * @package KaaMailLib\QueueManagers\QueueAdapters
@@ -32,13 +32,13 @@ class ConsumerAdapter
     }
 
     /**
-     * Êîíôèãóðàöèÿ êîíñþìåðà
+     * ÐšÐ¾Ð½Ñ„Ð¸Ð³ÑƒÑ€Ð°Ñ†Ð¸Ñ ÐºÐ¾Ð½ÑÑŽÐ¼ÐµÑ€Ð°
      *
      * @param $name
      * @param AMQPStreamConnection $connection
      * @return bool|\PhpAmqpLib\Channel\AMQPChannel
      */
-    public function ñonfigure($name, AMQPStreamConnection $connection)
+    public function Ñonfigure($name, AMQPStreamConnection $connection)
     {
         $configuration = $this->consumersConfig->getConsumerConfig($name);
         if (!is_array($configuration)) {

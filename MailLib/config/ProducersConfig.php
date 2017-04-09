@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Кузнецо
+ * User: РљСѓР·РЅРµС†Рѕ
  * Date: 02.04.2017
  * Time: 19:13
  */
@@ -10,16 +10,15 @@ namespace KaaMailLib\config;
 use KaaMailLib\QueueManagers\QueueProducers\SendMailProducer;
 
 /**
- * Конфигурация продюссеров
+ * РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ РїСЂРѕРґСЋСЃСЃРµСЂРѕРІ
  *
  * Class ProducersConfig
  * @package KaaMailLib\config
  */
 class ProducersConfig
 {
-    const TYPE = 'producers';
     /**
-     * Список продюссеров с их настройками
+     * РЎРїРёСЃРѕРє РїСЂРѕРґСЋСЃСЃРµСЂРѕРІ СЃ РёС… РЅР°СЃС‚СЂРѕР№РєР°РјРё
      *
      * @var array
      */
@@ -27,13 +26,12 @@ class ProducersConfig
         SendMailProducer::NAME => [
             'exchange' => SendMailProducer::EXCHANGE_NAME,
             'type' => 'direct',
-            'route' => [SendMailProducer::MAIL_KEY, SendMailProducer::ERROR_MAIL_KEY],
             'callback' => SendMailProducer::class
         ],
     ];
 
     /**
-     * Метод для получения конфигурации продюссера
+     * РњРµС‚РѕРґ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РєРѕРЅС„РёРіСѓСЂР°С†РёРё РїСЂРѕРґСЋСЃСЃРµСЂР°
      *
      * @return array
      */

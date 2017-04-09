@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User:  ÛÁÌÂˆÓ
+ * User: –ö—É–∑–Ω–µ—Ü–æ
  * Date: 04.04.2017
  * Time: 20:38
  */
@@ -43,7 +43,7 @@ class ProducerBuilder
     {
         $connection = $this->getAMQPConnection();
 
-        $chanel = $this->producerAdapter->Òonfigure($name, $connection);
+        $chanel = $this->producerAdapter->—Åonfigure($name, $connection);
 
         if (!($chanel instanceof AMQPChannel)) {
             return false;

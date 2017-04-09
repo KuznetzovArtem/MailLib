@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Êóçíåöî
+ * User: ÐšÑƒÐ·Ð½ÐµÑ†Ð¾
  * Date: 08.04.2017
  * Time: 20:12
  */
@@ -11,7 +11,7 @@ namespace KaaMailLib\QueueManagers\QueueProducers;
 use PhpAmqpLib\Channel\AMQPChannel;
 
 /**
- * Ïî ñóòè ýòî àáñòðàêòíàÿ ôàáðèêà ïðîäþññåðîâ íî îí òîëüêî 1
+ * ÐŸÐ¾ ÑÑƒÑ‚Ð¸ ÑÑ‚Ð¾ Ð°Ð±ÑÑ‚Ñ€Ð°ÐºÑ‚Ð½Ð°Ñ Ñ„Ð°Ð±Ñ€Ð¸ÐºÐ° Ð¿Ñ€Ð¾Ð´ÑŽÑÑÐµÑ€Ð¾Ð² Ð½Ð¾ Ð¾Ð½ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ 1
  *
  * Class Producer
  * @package KaaMailLib\QueueManagers\QueueProducers
@@ -30,7 +30,7 @@ abstract class Producer
     abstract public function setChannel(AMQPChannel $channel);
 
     /**
-     * Ìåòîä îòïðàâêè ñîîáùåíèé
+     * ÐœÐµÑ‚Ð¾Ð´ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐ¸ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹
      *
      * @param $message
      * @param $key

@@ -1,10 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User:  ÛÁÌÂˆÓ
+ * User: –ö—É–∑–Ω–µ—Ü–æ
  * Date: 04.04.2017
  * Time: 20:38
  */
+
 namespace KaaMailLib\QueueManagers\QueueBuilders;
 
 use KaaMailLib\config\ConsumersConfig;
@@ -41,7 +42,7 @@ class ConsumerBuilder
     }
 
     /**
-     * ÃÂÚÓ‰ ÔÓÎÛ˜‡ÂÚ ÒÍÓÌÙË„ÛËÓ‚‡ÌÌÓ„Ó ÍÓÌÒ˛ÏÂ‡
+     * –ú–µ—Ç–æ–¥ –ø–æ–ª—É—á–∞–µ—Ç —Å–∫–æ–Ω—Ñ–∏–≥—É—Ä–∏—Ä–æ–≤–∞–Ω–Ω–æ–≥–æ –∫–æ–Ω—Å—é–º–µ—Ä–∞
      *
      * @param $name
      * @return bool
@@ -51,7 +52,7 @@ class ConsumerBuilder
         $connection = $this->getAMQPConnection();
         $callback = $this->consumerAdapter->getPropertyOfConsumer($name, 'callback');
         $consumer = $this->diSetter->setServicesToClass($callback);
-        $channel = $this->consumerAdapter->Òonfigure($name, $connection);
+        $channel = $this->consumerAdapter->—Åonfigure($name, $connection);
         if (!$channel instanceof AMQPChannel) {
             return false;
         }

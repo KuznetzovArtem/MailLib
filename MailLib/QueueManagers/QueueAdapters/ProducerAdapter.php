@@ -1,16 +1,17 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Êóçíåöî
+ * User: ÐšÑƒÐ·Ð½ÐµÑ†Ð¾
  * Date: 04.04.2017
  * Time: 22:32
  */
+
 namespace KaaMailLib\QueueManagers\QueueAdapters;
 use KaaMailLib\config\ProducersConfig;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
 /**
- * Êëàññ äëÿ êîíôèãóðàöèè ïðîäþññåðîâ
+ * ÐšÐ»Ð°ÑÑ Ð´Ð»Ñ ÐºÐ¾Ð½Ñ„Ð¸Ð³ÑƒÑ€Ð°Ñ†Ð¸Ð¸ Ð¿Ñ€Ð¾Ð´ÑŽÑÑÐµÑ€Ð¾Ð²
  *
  * Class ProducerAdapter
  * @package KaaMailLib\QueueManagers\QueueAdapters
@@ -31,13 +32,13 @@ class ProducerAdapter
     }
 
     /**
-     * Êîíôèãóðàöèÿ ïðîäþññåðà
+     * ÐšÐ¾Ð½Ñ„Ð¸Ð³ÑƒÑ€Ð°Ñ†Ð¸Ñ Ð¿Ñ€Ð¾Ð´ÑŽÑÑÐµÑ€Ð°
      *
      * @param $name
      * @param AMQPStreamConnection $connection
      * @return bool|\PhpAmqpLib\Channel\AMQPChannel
      */
-    public function ñonfigure($name, AMQPStreamConnection $connection)
+    public function Ñonfigure($name, AMQPStreamConnection $connection)
     {
         $configuration = $this->producersConfig->getProducerConfig($name);
         if (!is_array($configuration)) {

@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: Кузнецо
+ * User: РљСѓР·РЅРµС†Рѕ
  * Date: 05.04.2017
  * Time: 0:11
  */
@@ -12,7 +12,7 @@ use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Message\AMQPMessage;
 
 /**
- * Записывает сообщения в очередь
+ * Р—Р°РїРёСЃС‹РІР°РµС‚ СЃРѕРѕР±С‰РµРЅРёСЏ РІ РѕС‡РµСЂРµРґСЊ
  *
  * Class SendMailProducer
  * @package KaaMailLib\QueueManagers\QueueProducers
@@ -30,7 +30,7 @@ class SendMailProducer extends Producer
     }
 
     /**
-     * Отправка сообщения
+     * РћС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёСЏ
      *
      * @param $message
      * @param $key

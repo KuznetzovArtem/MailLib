@@ -1,14 +1,13 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Êóçíåöî
+ * User: ÐšÑƒÐ·Ð½ÐµÑ†Ð¾
  * Date: 08.04.2017
  * Time: 22:12
  */
 
 namespace KaaMailLib\config;
 
-use KaaMailLib\config\ConsumersConfig;
 use KaaMailLib\QueueManagers\QueueAdapters\ConsumerAdapter;
 use Symfony\Component\DependencyInjection\Reference;
 use KaaMailLib\Services\Mail\MailValidator;
@@ -17,9 +16,10 @@ use KaaMailLib\QueueManagers\QueueBuilders\ConsumerBuilder;
 use KaaMailLib\Services\DiSetter;
 use KaaMailLib\QueueManagers\QueueBuilders\ProducerBuilder;
 use KaaMailLib\QueueManagers\QueueAdapters\ProducerAdapter;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * Â êëàññå îïèñûâàþòñÿ çàâèñèìîñòè
+ * Ð’ ÐºÐ»Ð°ÑÑÐµ Ð¾Ð¿Ð¸ÑÑ‹Ð²Ð°ÑŽÑ‚ÑÑ Ð·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚Ð¸
  *
  * Class DiConfig
  * @package KaaMailLib
@@ -34,8 +34,8 @@ class DiConfig
 
     public function __construct()
     {
-        $container  = new \Symfony\Component\DependencyInjection\ContainerBuilder();
-        // ôîðìèðîâàíèå êîíñþìåðà
+        $container  = new ContainerBuilder();
+        // Ñ„Ð¾Ñ€Ð¼Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ ÐºÐ¾Ð½ÑÑŽÐ¼ÐµÑ€Ð°
         $container->register('ConsumerBuilder', ConsumerBuilder::class)
             ->addArgument(new Reference('ConsumerAdapter'))
             ->addArgument(new Reference('DiSetter'));
@@ -43,19 +43,19 @@ class DiConfig
             ->addArgument(new Reference('ConsumersConfig'));
         $container->register('ConsumersConfig', ConsumersConfig::class);
 
-        // ôîðìèðîâàíèå ïðîäþññåðà
+        // Ñ„Ð¾Ñ€Ð¼Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð¿Ñ€Ð¾Ð´ÑŽÑÑÐµÑ€Ð°
         $container->register('ProducerBuilder', ProducerBuilder::class)
             ->addArgument(new Reference('ProducerAdapter'));
         $container->register('ProducerAdapter', ProducerAdapter::class)
             ->addArgument(new Reference('ProducersConfig'));
         $container->register('ProducersConfig', ProducersConfig::class);
 
-        // ôîðìèðîâàíèå ñåðâèñà êîòîðûé ñåòèò êîíñþìåðàì äðóãèå ñåðâèñû
+        // Ñ„Ð¾Ñ€Ð¼Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ ÑÐµÑ€Ð²Ð¸ÑÐ° ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ ÑÐµÑ‚Ð¸Ñ‚ ÐºÐ¾Ð½ÑÑŽÐ¼ÐµÑ€Ð°Ð¼ Ð´Ñ€ÑƒÐ³Ð¸Ðµ ÑÐµÑ€Ð²Ð¸ÑÑ‹
         $container->register('DiSetter',  DiSetter::class)
             ->addMethodCall('setContainer', array(new Reference('service_container')));
 
 
-        // ôîðìèðîâàíè ñåðâèñà äëÿ îòïðàâêè ñîîáùåíèé
+        // Ñ„Ð¾Ñ€Ð¼Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸ ÑÐµÑ€Ð²Ð¸ÑÐ° Ð´Ð»Ñ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐ¸ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹
         $container->register('MailValidator', MailValidator::class)
             ->addArgument(new Reference('ProducerBuilder'));
         $container->register('MailService', MailService::class)

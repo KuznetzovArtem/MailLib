@@ -6,7 +6,7 @@ use KaaMailLib\QueueManagers\QueueConsumers\MailErrorConsumer;
 use KaaMailLib\QueueManagers\QueueProducers\SendMailProducer;
 
 /**
- * Конфигурация консюммеров
+ * РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ РєРѕРЅСЃСЋРјРјРµСЂРѕРІ
  *
  * Class ConsumersConfig
  * @package KaaMailLib\config
@@ -14,12 +14,12 @@ use KaaMailLib\QueueManagers\QueueProducers\SendMailProducer;
 class ConsumersConfig
 {
     /**
-     * Максимальное количество прослушиваемых сообщений
+     * РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕСЃР»СѓС€РёРІР°РµРјС‹С… СЃРѕРѕР±С‰РµРЅРёР№
      */
     const MAXIMAL_MESSAGE = 10;
 
     /**
-     * Список консюмеров с их настройками
+     * РЎРїРёСЃРѕРє РєРѕРЅСЃСЋРјРµСЂРѕРІ СЃ РёС… РЅР°СЃС‚СЂРѕР№РєР°РјРё
      *
      * @var array
      */
@@ -42,7 +42,7 @@ class ConsumersConfig
     ];
 
     /**
-     * Метод для получения конфигурации консюмера
+     * РњРµС‚РѕРґ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РєРѕРЅС„РёРіСѓСЂР°С†РёРё РєРѕРЅСЃСЋРјРµСЂР°
      *
      * @return array
      */
@@ -56,7 +56,7 @@ class ConsumersConfig
     }
 
     /**
-     * Метод для получения свойства из списка настроек
+     * РњРµС‚РѕРґ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ СЃРІРѕР№СЃС‚РІР° РёР· СЃРїРёСЃРєР° РЅР°СЃС‚СЂРѕРµРє
      *
      * @param $name
      * @param $property

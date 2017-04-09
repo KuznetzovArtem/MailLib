@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Êóçíåöî
+ * User: ÐšÑƒÐ·Ð½ÐµÑ†Ð¾
  * Date: 03.04.2017
  * Time: 4:18
  */
@@ -9,7 +9,7 @@
 namespace KaaMailLib\Services\Mail;
 
 /**
- * Ñåðâèñ äëÿ îòïðàâêè ñîîáùåíèé
+ * Ð¡ÐµÑ€Ð²Ð¸Ñ Ð´Ð»Ñ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐ¸ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹
  *
  * Class MailService
  * @package KaaMailLib\Services\Mail
@@ -17,7 +17,7 @@ namespace KaaMailLib\Services\Mail;
 class MailService
 {
     /**
-     * Ñåðâèñ ïðîâåðêè ñîîáùåíèÿ íà êîððåêòíîñòü
+     * Ð¡ÐµÑ€Ð²Ð¸Ñ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¸ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð½Ð° ÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾ÑÑ‚ÑŒ
      *
      * @var MailValidator
      */
@@ -29,7 +29,7 @@ class MailService
     }
 
     /**
-     * Îòïðàâëÿåò ñîîáùåíè íà ïî÷òó
+     * ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸ Ð½Ð° Ð¿Ð¾Ñ‡Ñ‚Ñƒ
      *
      * @param $message
      */

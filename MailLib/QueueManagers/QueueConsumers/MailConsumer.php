@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Кузнецо
+ * User: РљСѓР·РЅРµС†Рѕ
  * Date: 04.04.2017
  * Time: 21:24
  */
@@ -12,7 +12,7 @@ use KaaMailLib\Services\Mail\MailService;
 use PhpAmqpLib\Message\AMQPMessage;
 
 /**
- * сервис для отправки сообщений
+ * СЃРµСЂРІРёСЃ РґР»СЏ РѕС‚РїСЂР°РІРєРё СЃРѕРѕР±С‰РµРЅРёР№
  *
  * Class MailConsumer
  */
@@ -22,7 +22,7 @@ class MailConsumer implements AMQPConsumerInterface
     const QUEUE_NAME = 'Send_Mail';
 
     /**
-     * Сервис для отправки сообщений
+     * РЎРµСЂРІРёСЃ РґР»СЏ РѕС‚РїСЂР°РІРєРё СЃРѕРѕР±С‰РµРЅРёР№
      *
      * @var MailService
      */
@@ -40,8 +40,6 @@ class MailConsumer implements AMQPConsumerInterface
     {
         $body = json_decode($message->body,true);
         $this->mailService->sendMail($body);
-        var_dump($body);
-        //todo тут логиа по обработки сообщения
         $message->delivery_info['channel']->basic_ack($message->delivery_info['delivery_tag']);
     }
 

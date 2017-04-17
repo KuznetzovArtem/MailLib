@@ -14,7 +14,7 @@ use KaaMailLib\QueueManagers\QueueProducers\Producer;
 use PhpAmqpLib\Channel\AMQPChannel;
 
 /**
- *
+ * // REVIEW: идея неплохая использовать билдер для создания продюсера, но реализация далека от классического понимания билдера
  * Class ProducerBuilder
  * @package KaaMailLib\QueueManagers\QueueBuilders1
  */

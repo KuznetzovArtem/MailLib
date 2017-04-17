@@ -7,6 +7,8 @@
  */
 namespace KaaMailLib\config;
 
+// REVIEW: непонятно почему это абстрактный класс, если уж описывать конфиги в классах, то думаю
+// REVIEW: лучше делать их финальными через final class, чтобы нельзя было отнаследовать и изменить
 abstract class AMQPConfig
 {
     const HOST = '192.168.99.100';

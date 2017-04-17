@@ -46,6 +46,8 @@ class DiSetter
     {
         if (class_exists($callback)) {
             $consumer = new $callback;
+            // REVIEW: обычно DI используется для того, чтобы сделать более гибкий код и отвязаться от зависимостей явных
+            // REVIEW: здесь ты явно привязываешься к AMQP
             if (!($consumer instanceof AMQPConsumerInterface)) {
                 return false;
             }

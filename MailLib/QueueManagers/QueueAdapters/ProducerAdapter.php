@@ -11,6 +11,7 @@ use KaaMailLib\config\ProducersConfig;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
 /**
+ * // REVIEW: на самом деле класс занимается совсем другим. Посмотри внимательно свой код и скажи что он делает.
  * Класс для конфигурации продюссеров
  *
  * Class ProducerAdapter
@@ -19,11 +20,13 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
 class ProducerAdapter
 {
     /**
+     * // REVIEW: здесь скорее всего не ConsumerAdapter, а ProducersConfig, думаю просто опечатался
      * @var ConsumerAdapter
      */
     private $producersConfig;
 
     /**
+     * // REVIEW: здесь тоже название переменной не соответствует тому, что действительно передается в аргументах
      * @param ProducersConfig $consumersConfig
      */
     public function __construct(ProducersConfig $producersConfig)

@@ -12,6 +12,7 @@ use KaaMailLib\Services\Mail\MailService;
 use PhpAmqpLib\Message\AMQPMessage;
 
 /**
+ * // REVIEW: неверное описание для класса
  * сервис для отправки сообщений
  *
  * Class MailConsumer

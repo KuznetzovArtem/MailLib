@@ -59,6 +59,9 @@ class ConsumerBuilder
         $queueName = $this->consumerAdapter->getPropertyOfConsumer($name, 'queue_name');
         $channel->basic_consume($queueName, '', false, false, false, false, [$consumer,'consume']);
         $messageListening = 0;
+        // REVIEW: несовсем понятно почему мы шлем только 10 сообщений и затем валимся
+        // REVIEW: по-хорошему наш микросервис должен крутиться всегда. Если он упадет по какой-то причине, то должен сам себя уметь поднимать.
+        // REVIEW: решения на эту тему уже есть в интернете, можешь почитать
         while (count($channel->callbacks) && $messageListening < ConsumersConfig::MAXIMAL_MESSAGE) {
             $channel->wait();
             $messageListening++;

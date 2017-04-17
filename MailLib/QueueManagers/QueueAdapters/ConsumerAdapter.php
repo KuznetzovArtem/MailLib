@@ -19,6 +19,7 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
 class ConsumerAdapter
 {
     /**
+     * // REVIEW: здесь должно быть ConsumersConfig
      * @var ConsumerAdapter
      */
     private $consumersConfig;

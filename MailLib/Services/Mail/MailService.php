@@ -36,6 +36,7 @@ class MailService
     public function sendMail($message)
     {
         $correctMessage = $this->mailValidator->validate($message);
+        // REVIEW: нет нормальной обработки ошибки
         if (!$correctMessage) {
             return;
         }
